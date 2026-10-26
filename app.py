@@ -103,6 +103,41 @@ st.markdown(
         font-size: 13px;
         margin-top: 35px;
     }}
+    ```css
+/* Make general text visible */
+.stApp, [data-testid="stMarkdown"], label,
+.stText, p, li {
+    color: #f1f5ff;
+}
+
+/* Input label */
+.stTextArea label {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* Review text and placeholder */
+.stTextArea textarea {
+    color: #ffffff !important;
+    background-color: rgba(5, 20, 45, 0.95) !important;
+    caret-color: #00c8ff;
+}
+
+.stTextArea textarea::placeholder {
+    color: #c5d7f0 !important;
+    opacity: 1;
+}
+
+/* Ensure headings and captions are visible */
+h1, h2, h3, .stCaption {
+    color: #ffffff !important;
+}
+
+/* Footer */
+.footer {
+    color: #d8e8ff !important;
+}
+```
     </style>
     """,
     unsafe_allow_html=True
