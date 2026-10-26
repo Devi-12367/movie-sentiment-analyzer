@@ -1,3 +1,4 @@
+
 import streamlit as st
 from transformers import pipeline
 import base64
@@ -20,7 +21,7 @@ def load_model():
 
 sentiment_pipeline = load_model()
 
-with open("background.jpg", "rb") as file:
+with open("P1.jpg", "rb") as file:
     image = base64.b64encode(file.read()).decode()
 
 st.markdown(
@@ -43,23 +44,43 @@ st.markdown(
 
     h1 {{
         text-align: center;
-        color: #ffffff;
+        color: #ffffff !important;
         font-size: 42px;
         text-shadow: 0 0 20px #00aaff;
     }}
 
     .subtitle {{
         text-align: center;
-        color: #c7e6ff;
+        color: #c7e6ff !important;
         font-size: 17px;
         margin-bottom: 30px;
     }}
 
+    .stApp,
+    [data-testid="stMarkdown"],
+    [data-testid="stWidgetLabel"],
+    label,
+    p,
+    li {{
+        color: #f1f5ff;
+    }}
+
+    .stTextArea label {{
+        color: #ffffff !important;
+        font-weight: 600;
+    }}
+
     .stTextArea textarea {{
-        background: rgba(8,25,50,0.88);
-        color: white;
+        background: rgba(5,20,45,0.95) !important;
+        color: #ffffff !important;
         border: 1px solid #339dff;
         border-radius: 14px;
+        caret-color: #00c8ff;
+    }}
+
+    .stTextArea textarea::placeholder {{
+        color: #c5d7f0 !important;
+        opacity: 1;
     }}
 
     .stTextArea textarea:focus {{
@@ -72,7 +93,7 @@ st.markdown(
         height: 50px;
         border-radius: 14px;
         background: linear-gradient(90deg, #0756c9, #00bfff);
-        color: white;
+        color: #ffffff !important;
         font-size: 18px;
         font-weight: bold;
         border: none;
@@ -82,7 +103,7 @@ st.markdown(
     .stButton button:hover {{
         transform: scale(1.02);
         box-shadow: 0 0 20px #009dff;
-        color: white;
+        color: #ffffff !important;
     }}
 
     [data-testid="stAlert"] {{
@@ -91,53 +112,23 @@ st.markdown(
     }}
 
     [data-testid="stMetric"] {{
-        background: rgba(8,25,50,0.8);
+        background: rgba(8,25,50,0.90);
         padding: 16px;
         border: 1px solid #267edb;
         border-radius: 14px;
     }}
 
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricValue"] {{
+        color: #ffffff !important;
+    }}
+
     .footer {{
         text-align: center;
-        color: #b9d9f5;
+        color: #d8e8ff !important;
         font-size: 13px;
         margin-top: 35px;
     }}
-    ```css
-/* Make general text visible */
-.stApp, [data-testid="stMarkdown"], label,
-.stText, p, li {
-    color: #f1f5ff;
-}
-
-/* Input label */
-.stTextArea label {
-    color: #ffffff !important;
-    font-weight: 600;
-}
-
-/* Review text and placeholder */
-.stTextArea textarea {
-    color: #ffffff !important;
-    background-color: rgba(5, 20, 45, 0.95) !important;
-    caret-color: #00c8ff;
-}
-
-.stTextArea textarea::placeholder {
-    color: #c5d7f0 !important;
-    opacity: 1;
-}
-
-/* Ensure headings and captions are visible */
-h1, h2, h3, .stCaption {
-    color: #ffffff !important;
-}
-
-/* Footer */
-.footer {
-    color: #d8e8ff !important;
-}
-```
     </style>
     """,
     unsafe_allow_html=True
@@ -173,4 +164,7 @@ if st.button("🍿 Analyze Sentiment"):
     else:
         st.warning("⚠️ Please enter a movie review first.")
 
-
+st.markdown(
+    "<div class='footer'>Made with ❤️ using Python and Streamlit</div>",
+    unsafe_allow_html=True
+)
