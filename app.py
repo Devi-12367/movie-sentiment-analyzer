@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-model_path = "./final_movie_sentiment_modelll"
+model_path = "Nandu-124/movie-sentiment-model"
 
 @st.cache_resource
 def load_model():
