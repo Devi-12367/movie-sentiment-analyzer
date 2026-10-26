@@ -20,7 +20,7 @@ def load_model():
 
 sentiment_pipeline = load_model()
 
-with open("background.jpg", "rb") as file:
+with open("P1.jpg", "rb") as file:
     image = base64.b64encode(file.read()).decode()
 
 st.markdown(
